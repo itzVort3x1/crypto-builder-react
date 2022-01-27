@@ -1,10 +1,13 @@
 import react from "react";
 import SideBar from "./components/sideBar.js";
+import Routes from "./routes";
 
 function App() {
   return (
     <>
-      <SideBar />
+      <SideBar>
+        <Routes />
+      </SideBar>
     </>
   );
 }

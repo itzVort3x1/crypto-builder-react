@@ -59,7 +59,17 @@ const Dashboard = (props) => {
             </h3>
           </Col>
           <Col style={{ textAlign: "center", marginTop: "20px" }}>
-            <Button variant="outline-danger">Manage</Button>
+            <button
+              style={{
+                border: "none",
+                backgroundColor: "purple",
+                color: "white",
+                padding: "6px",
+                borderRadius: "10px",
+              }}
+            >
+              Create Token
+            </button>
           </Col>
         </Row>
       );
@@ -95,9 +105,20 @@ const Dashboard = (props) => {
               </p>
             </Col>
             <Col lg={4} style={{ textAlign: "center" }}>
-              <Button variant="outline-success" onClick={() => setShow(true)}>
-                Create a new SPL token +
-              </Button>
+              <button
+                style={{
+                  border: "none",
+                  backgroundColor: "purple",
+                  color: "white",
+                  padding: "6px",
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                  borderRadius: "10px",
+                }}
+                onClick={() => setShow(true)}
+              >
+                Create A new SPL Token +
+              </button>
             </Col>
           </Row>
           <div>{renderCoinDetails()}</div>

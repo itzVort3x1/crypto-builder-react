@@ -6,14 +6,14 @@ import {
   SidebarContent,
   Menu,
   MenuItem,
-  SubMenu,
 } from "react-pro-sidebar";
 import { FaCoins, FaRocket, FaSnowflake, FaScroll } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import "react-pro-sidebar/dist/css/styles.css";
-import { Row, Col } from "react-bootstrap";
 import Body from "./tokenManagement";
+import LoadingAnimation from "./loadingAnimation";
+import { Link } from "react-router-dom";
 
 const SideBar = (props) => {
   //create initial menuCollapse state using useState hook
@@ -24,10 +24,10 @@ const SideBar = (props) => {
     if (activeScreen === "TokenManagement") {
       return <Body />;
     } else if (activeScreen === "IDO") {
-      return <div>Hello</div>;
+      return <LoadingAnimation />;
     } else if (activeScreen === "NFT") {
       return <div>Hello</div>;
-    } else {
+    } else if (activeScreen === "DOC") {
       return <div>Hello</div>;
     }
   }
@@ -57,10 +57,11 @@ const SideBar = (props) => {
                     <div>
                       <p
                         style={{
-                          fontSize: "20px",
+                          fontSize: "30px",
                           letterSpacing: "2px",
                           fontWeight: "bold",
                           color: "black",
+                          fontFamily: "Dancing Script, cursive",
                         }}
                       >
                         Crypto Builder
@@ -78,30 +79,44 @@ const SideBar = (props) => {
             <SidebarContent style={{ backgroundColor: "white" }}>
               <Menu iconShape="circle">
                 <MenuItem
-                  style={{ color: "black" }}
+                  style={{
+                    color:
+                      activeScreen == "TokenManagement" ? "white" : "black",
+                    backgroundColor:
+                      activeScreen == "TokenManagement" ? "purple" : "white",
+                  }}
                   icon={<FaCoins color="white" size={20} />}
                   onClick={() => setActiveScreen("TokenManagement")}
                 >
                   Token Management
                 </MenuItem>
                 <MenuItem
-                  style={{ color: "black" }}
+                  style={{
+                    color: activeScreen == "IDO" ? "white" : "black",
+                    backgroundColor: activeScreen == "IDO" ? "purple" : "white",
+                  }}
                   icon={<FaRocket color="white" size={20} />}
                   onClick={() => setActiveScreen("IDO")}
                 >
                   Apply for IDO
                 </MenuItem>
                 <MenuItem
-                  style={{ color: "black" }}
+                  style={{
+                    color: activeScreen == "NFT" ? "white" : "black",
+                    backgroundColor: activeScreen == "NFT" ? "purple" : "white",
+                  }}
                   icon={<FaSnowflake color="white" size={20} />}
                   onClick={() => setActiveScreen("NFT")}
                 >
                   NFT
                 </MenuItem>
                 <MenuItem
-                  style={{ color: "black" }}
+                  style={{
+                    color: activeScreen == "DOC" ? "white" : "black",
+                    backgroundColor: activeScreen == "DOC" ? "purple" : "white",
+                  }}
                   icon={<FaScroll color="white" size={20} />}
-                  onClick={() => setActiveScreen("Documentation")}
+                  onClick={() => setActiveScreen("DOC")}
                 >
                   Documentation
                 </MenuItem>
@@ -109,6 +124,7 @@ const SideBar = (props) => {
                   style={{ color: "black" }}
                   onClick={() => {
                     setMenuCollapse(!menuCollapse);
+                    setActiveScreen("TokenManagement");
                   }}
                   icon={
                     !menuCollapse ? (
