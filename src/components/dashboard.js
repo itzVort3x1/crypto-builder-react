@@ -90,7 +90,13 @@ const Dashboard = (props) => {
           className="shadow-lg"
         >
           <div>
-            <h5 style={{ paddingLeft: "10px", paddingTop: "10px" }}>
+            <h5
+              style={{
+                paddingLeft: "10px",
+                paddingTop: "10px",
+                textAlign: "center",
+              }}
+            >
               Token Management
             </h5>
             <hr />
@@ -108,7 +114,7 @@ const Dashboard = (props) => {
               <button
                 style={{
                   border: "none",
-                  backgroundColor: "purple",
+                  backgroundColor: "#161E54",
                   color: "white",
                   padding: "6px",
                   paddingLeft: "10px",

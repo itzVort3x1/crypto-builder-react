@@ -20,7 +20,7 @@ const CreateToken = () => {
       return (
         <Row
           style={{
-            border: "1px solid black",
+            border: "1px solid purple",
             margin: "10px",
           }}
         >
@@ -45,7 +45,7 @@ const CreateToken = () => {
             </div>
           </Col>
           <Col lg={10} style={{ paddingLeft: "2px", paddingRight: "2px" }}>
-            <input style={{ border: "none", width: "100%", height: "100%" }} />
+            {item.value}
           </Col>
         </Row>
       );
@@ -72,35 +72,10 @@ const CreateToken = () => {
                 textAlign: "center",
               }}
             >
-              Token Management
+              Token Details
             </h5>
             <hr />
           </div>
-          <Row>
-            <Col lg={12} xs={12} style={{ padding: "20px" }}>
-              <h3>Create SPL Token</h3>
-              <p>
-                Creating a SPL token with SolMinter is easy as 1,2,3. start with
-                the basic requirements: Mint authority, freeze, authority and
-                number of decimals.
-                <br />
-                <AiOutlineInfoCircle color="black" size={25} /> it takes 1 SOL
-                to mint a token, save 25% by paying with SMRT
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="text-center">
-              <Form>
-                <Form.Check
-                  inline
-                  label="label goes here"
-                  name="group1"
-                  type="checkbox"
-                />
-              </Form>
-            </Col>
-          </Row>
           <Row>
             <Col lg={12} style={{ textAlign: "center" }}>
               {/* <Form>
@@ -121,7 +96,7 @@ const CreateToken = () => {
                 }}
                 onClick={() => setQrCodePage(true)}
               >
-                Create Token
+                Move To Account
               </button>
             </Col>
           </Row>
