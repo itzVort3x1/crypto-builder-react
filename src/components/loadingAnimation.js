@@ -1,4 +1,4 @@
-import react, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import Lottie from "lottie-web";
 
 const LoadingAnimation = (props) => {

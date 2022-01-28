@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import { Button, Modal, Row } from "react-bootstrap";
 import Dashboard from "./dashboard";
 
@@ -53,8 +53,10 @@ const Body = (props) => {
                   <Button
                     variant="warning"
                     size="lg"
-                    onClick={handleShow}
-                    onClick={getProvider}
+                    onClick={() => {
+                      handleShow();
+                      getProvider();
+                    }}
                   >
                     Phantom
                   </Button>

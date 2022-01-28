@@ -1,5 +1,5 @@
-import react, { useState } from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Col, Row } from "react-bootstrap";
 import {
   AiOutlineDoubleLeft,
   AiOutlineDoubleRight,

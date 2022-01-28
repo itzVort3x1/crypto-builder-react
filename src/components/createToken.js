@@ -1,15 +1,6 @@
 import React, { useState } from "react";
-import { Button, Col, Row, Form } from "react-bootstrap";
-import {
-  AiOutlineDoubleLeft,
-  AiOutlineDoubleRight,
-  AiOutlineInfoCircle,
-  AiFillInfoCircle,
-} from "react-icons/ai";
-import {
-  MdOutlineKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
+import { Col, Row, Form } from "react-bootstrap";
+import { AiOutlineInfoCircle, AiFillInfoCircle } from "react-icons/ai";
 
 import QRCodeComponent from "./qrCode";
 

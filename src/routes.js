@@ -1,11 +1,6 @@
 import React from "react";
 
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const ConnectToWallet = React.lazy(() => import("./components/sideBar"));
 

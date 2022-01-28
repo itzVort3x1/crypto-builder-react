@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { Row, Col } from "react-bootstrap";
 
 import { AiOutlineCopy } from "react-icons/ai";

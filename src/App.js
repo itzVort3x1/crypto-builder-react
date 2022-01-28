@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import SideBar from "./components/sideBar.js";
 import Routes from "./routes";
 
