@@ -11,30 +11,17 @@ import {
 } from "react-icons/md";
 
 import CreateToken from "./createToken";
-
-const details = [
-  {
-    name: "SPL",
-    ticker: "SPL",
-    address: "0x00000000",
-  },
-  {
-    name: "SPL",
-    ticker: "SPL",
-    address: "0x00000000",
-  },
-  {
-    name: "SPL",
-    ticker: "SPL",
-    address: "0x00000000",
-  },
-];
-
 const Dashboard = (props) => {
+  var obj=props.data;
   const [show, setShow] = useState(false);
 
+  
   function renderCoinDetails() {
-    return details.map((item) => {
+    if(props.data.Coins.length===0)
+    return(<h5>No coins</h5>)
+    else{
+  
+    return props.data.Coins.map((item) => {
       return (
         <Row
           style={{
@@ -74,11 +61,11 @@ const Dashboard = (props) => {
         </Row>
       );
     });
-  }
+  }}
 
   return (
     <>
-      {show && <CreateToken />}
+      {show && <CreateToken  data={obj}/>}
       {!show && (
         <div
           style={{

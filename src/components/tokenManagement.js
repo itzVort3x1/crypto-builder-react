@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Button, Modal, Row } from "react-bootstrap";
 import Dashboard from "./dashboard";
-
+var obj;
 const Body = (props) => {
+  
+  
   const [show, setShow] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
 
@@ -11,25 +13,43 @@ const Body = (props) => {
 
   const getProvider = async () => {
     const isPhantomInstalled = window.solana && window.solana.isPhantom;
-    if (isPhantomInstalled === true) {
+    if(isPhantomInstalled === true) {
+      
       try {
         const resp = await window.solana.connect();
         resp.publicKey.toString();
-        handleClose();
-        setShowDashboard(true);
       } catch (err) {}
-      handleClose();
-      setShowDashboard(true);
+      
+      
+      const wallet={
+
+        'wallet': window.solana.publicKey.toString()
+      } 
+      fetch('http://localhost:5000/authenticate', {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(wallet)
+})
+.then(res => res.json())
+.then(data => obj = data)
+.then(() => {
+  console.log('Success:', obj);
+  handleClose()
+  setShowDashboard(true);
+}) 
+
+      
+
     } else {
       window.open("https://phantom.app/", "_blank");
-      handleClose();
-      setShowDashboard(true);
     }
-  };
-
+  }
   return (
     <>
-      {showDashboard && <Dashboard />}
+      {showDashboard && <Dashboard data={obj}/>}
       {!showDashboard && (
         <div
           style={{

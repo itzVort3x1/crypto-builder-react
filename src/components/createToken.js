@@ -4,15 +4,17 @@ import { AiOutlineInfoCircle, AiFillInfoCircle } from "react-icons/ai";
 
 import QRCodeComponent from "./qrCode";
 
-const FormHeader = [
-  { title: "Token name", value: "" },
-  { title: "Token Symbol", value: "" },
-  { title: "Mint authority", value: "askdjfhiausdf8as7dfhasidjfha8sd7" },
-  { title: "Freeze authority", value: "askdjfhiausdf8as7dfhasidjfha8sd7" },
-  { title: "Decimals", value: "" },
-];
 
-const CreateToken = () => {
+const CreateToken = (props) => {
+  const FormHeader = [
+    { title: "Token name", value: "" },
+    { title: "Token Symbol", value: "" },
+    { title: "Mint authority", value: props.data.Authority , isDisabled:true},
+    { title: "Freeze authority", value: props.data.Authority, isDisabled:true },
+    { title: "Decimals", value: "" },
+  ];
+  
+  console.log(props.data )
   const [qrCodePage, setQrCodePage] = useState(false);
 
   function renderForm() {
@@ -45,7 +47,7 @@ const CreateToken = () => {
             </div>
           </Col>
           <Col lg={10} style={{ paddingLeft: "2px", paddingRight: "2px" }}>
-            <input style={{ border: "none", width: "100%", height: "100%" }} />
+            <input disabled={item.isDisabled} style={{ border: "none", width: "100%", height: "100%" }} value={item.value} />
           </Col>
         </Row>
       );
