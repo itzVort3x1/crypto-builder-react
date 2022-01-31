@@ -3,7 +3,7 @@
 } */
 
 .customShadow {
-  box-shadow: 5px 4px 15px 1px rgba(230, 209, 209, 0.75);
-  -webkit-box-shadow: 5px 4px 15px 1px rgba(230, 209, 209, 0.75);
-  -moz-box-shadow: 5px 4px 15px 1px rgba(230, 209, 209, 0.75);
+  box-shadow: 1px 3px 23px -3px rgba(230, 222, 222, 0.75);
+  -webkit-box-shadow: 1px 3px 23px -3px rgba(230, 222, 222, 0.75);
+  -moz-box-shadow: 1px 3px 23px -3px rgba(230, 222, 222, 0.75);
 }
