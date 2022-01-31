@@ -34,16 +34,17 @@ const CreateToken = () => {
               justifyContent: "space-between",
               borderRight: "1px solid black",
               textAlign: "center",
-              backgroundColor: "lightgray",
+              backgroundImage:
+                "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
             }}
           >
             <div>
               <Row>
                 <Col lg={8} className="mt-2">
-                  <h6>{item.title}</h6>
+                  <h6 style={{ color: "white" }}>{item.title}</h6>
                 </Col>
                 <Col className="mt-1" style={{ textAlign: "end" }}>
-                  <AiFillInfoCircle color="purple" />
+                  <AiFillInfoCircle color="black" />
                 </Col>
               </Row>
             </div>
@@ -103,7 +104,8 @@ const CreateToken = () => {
             style={{
               border: "none",
               width: "20%",
-              backgroundColor: "purple",
+              backgroundImage:
+                "linear-gradient(to right top, #be0019, #b30039, #990057, #6c006f, #13097f)",
               color: "white",
               padding: "6px",
               paddingLeft: "10px",

@@ -8,6 +8,7 @@ import CreateToken from "./createToken";
 import Animation from "./animation/emptyAnimation";
 
 const Dashboard = (props) => {
+  let width = window.innerWidth;
   var obj = props.data;
   const [show, setShow] = useState(false);
 
@@ -91,7 +92,7 @@ const Dashboard = (props) => {
               <button
                 style={{
                   border: "none",
-                  width: "20%",
+                  width: `${width > 950 ? "20%" : "60%"}`,
                   backgroundColor: "#161E54",
                   color: "white",
                   padding: "6px",

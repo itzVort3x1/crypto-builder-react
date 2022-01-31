@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Modal, Button } from "react-bootstrap";
 
 import { AiOutlineCopy } from "react-icons/ai";
 import TokenDisplay from "./tokenDisplay";
 
 const QRCode = (props) => {
   const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
 
   return (
     <>
@@ -61,13 +65,34 @@ const QRCode = (props) => {
                 backgroundColor: "#0A81AB",
                 borderRadius: "10px",
               }}
-              onClick={() => setShow(true)}
+              onClick={() => handleShow()}
             >
               Transfered
             </button>
           </div>
         </div>
       )}
+      {
+        <Modal backdrop="static" show={showModal} onHide={handleClose} centered>
+          <Modal.Body style={{ textAlign: "center", fontWeight: "bold" }}>
+            Have you Transfered the coins?{" "}
+          </Modal.Body>
+          <Modal.Footer style={{ textAlign: "center" }}>
+            <Button variant="danger" onClick={handleClose}>
+              No
+            </Button>
+            <Button
+              variant="success"
+              onClick={() => {
+                handleClose();
+                setShow(true);
+              }}
+            >
+              Yes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      }
     </>
   );
 };

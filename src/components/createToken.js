@@ -5,7 +5,7 @@ import { AiOutlineInfoCircle, AiFillInfoCircle } from "react-icons/ai";
 import QRCodeComponent from "./qrCode";
 
 const CreateToken = (props) => {
-  const FormHeader = [
+  const [inputVal, setInputVal] = useState([
     { title: "Token name", value: "" },
     { title: "Token Symbol", value: "" },
     { title: "Mint authority", value: props.data?.Authority, isDisabled: true },
@@ -15,13 +15,24 @@ const CreateToken = (props) => {
       isDisabled: true,
     },
     { title: "Decimals", value: "" },
-  ];
+  ]);
+  // const FormHeader = [
+  //   { title: "Token name", value: inputVal },
+  //   { title: "Token Symbol", value: "" },
+  //   { title: "Mint authority", value: props.data?.Authority, isDisabled: true },
+  //   {
+  //     title: "Freeze authority",
+  //     value: props.data?.Authority,
+  //     isDisabled: true,
+  //   },
+  //   { title: "Decimals", value: "" },
+  // ];
 
   console.log(props.data);
   const [qrCodePage, setQrCodePage] = useState(false);
 
   function renderForm() {
-    return FormHeader.map((item) => {
+    return inputVal.map((item, index) => {
       return (
         <Row
           style={{
@@ -35,16 +46,17 @@ const CreateToken = (props) => {
               justifyContent: "space-between",
               borderRight: "1px solid black",
               textAlign: "center",
-              backgroundColor: "lightgray",
+              backgroundImage:
+                "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
             }}
           >
             <div>
               <Row>
                 <Col lg={8} className="mt-2">
-                  <h6>{item.title}</h6>
+                  <h6 style={{ color: "white" }}>{item.title}</h6>
                 </Col>
                 <Col className="mt-1" style={{ textAlign: "end" }}>
-                  <AiFillInfoCircle color="purple" />
+                  <AiFillInfoCircle color="black" />
                 </Col>
               </Row>
             </div>
@@ -96,24 +108,31 @@ const CreateToken = (props) => {
                   name="group1"
                   type="checkbox"
                 />
+              </Form>
+            </div>
+          </Row>
+          <div className="py-3 px-3">{renderForm()}</div>
+          <Row>
+            <div className="px-5">
+              <Form>
                 <Form.Check
                   inline
                   style={{ color: "white" }}
                   label="label goes here"
                   name="group1"
-                  type="checkbox"
+                  type="switch"
                 />
               </Form>
             </div>
           </Row>
-          <div className="py-3 px-3">{renderForm()}</div>
           <Row>
             <div className="text-center py-3">
               <button
                 style={{
                   border: "none",
                   width: "20%",
-                  backgroundColor: "purple",
+                  backgroundImage:
+                    "linear-gradient(to right top, #be0019, #b30039, #990057, #6c006f, #13097f)",
                   color: "white",
                   padding: "6px",
                   paddingLeft: "10px",
