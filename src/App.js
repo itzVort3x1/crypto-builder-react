@@ -1,14 +1,11 @@
 import React from "react";
-import SideBar from "./components/sideBar.js";
 import Routes from "./routes";
 
 function App() {
   return (
-    <>
-      <SideBar>
-        <Routes />
-      </SideBar>
-    </>
+    <div style={{ width: "100vw", height: "100vh", backgroundColor: "black" }}>
+      <Routes />
+    </div>
   );
 }
 

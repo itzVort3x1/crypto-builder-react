@@ -1,3 +1,9 @@
-body {
+/* body {
   overflow: hidden;
+} */
+
+.customShadow {
+  box-shadow: 5px 4px 15px 1px rgba(230, 209, 209, 0.75);
+  -webkit-box-shadow: 5px 4px 15px 1px rgba(230, 209, 209, 0.75);
+  -moz-box-shadow: 5px 4px 15px 1px rgba(230, 209, 209, 0.75);
 }

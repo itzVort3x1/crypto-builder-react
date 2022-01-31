@@ -4,17 +4,20 @@ import { AiOutlineInfoCircle, AiFillInfoCircle } from "react-icons/ai";
 
 import QRCodeComponent from "./qrCode";
 
-
 const CreateToken = (props) => {
   const FormHeader = [
     { title: "Token name", value: "" },
     { title: "Token Symbol", value: "" },
-    { title: "Mint authority", value: props.data.Authority , isDisabled:true},
-    { title: "Freeze authority", value: props.data.Authority, isDisabled:true },
+    { title: "Mint authority", value: props.data?.Authority, isDisabled: true },
+    {
+      title: "Freeze authority",
+      value: props.data?.Authority,
+      isDisabled: true,
+    },
     { title: "Decimals", value: "" },
   ];
-  
-  console.log(props.data )
+
+  console.log(props.data);
   const [qrCodePage, setQrCodePage] = useState(false);
 
   function renderForm() {
@@ -47,7 +50,11 @@ const CreateToken = (props) => {
             </div>
           </Col>
           <Col lg={10} style={{ paddingLeft: "2px", paddingRight: "2px" }}>
-            <input disabled={item.isDisabled} style={{ border: "none", width: "100%", height: "100%" }} value={item.value} />
+            <input
+              disabled={item.isDisabled}
+              style={{ border: "none", width: "100%", height: "100%" }}
+              value={item.value}
+            />
           </Col>
         </Row>
       );
@@ -55,82 +62,73 @@ const CreateToken = (props) => {
   }
 
   return (
-    <div>
+    <>
+      {qrCodePage && <QRCodeComponent />}
       {!qrCodePage && (
         <div
           style={{
-            margin: "20px",
-            width: "90vw",
-            height: "94vh",
-            borderRadius: "15px",
+            borderRadius: "20px",
           }}
-          className="shadow-lg"
+          className="m-4 customShadow"
         >
-          <div>
-            <h5
-              style={{
-                paddingLeft: "10px",
-                paddingTop: "10px",
-                textAlign: "center",
-              }}
-            >
-              Token Management
-            </h5>
-            <hr />
+          <div className="p-3" style={{ textAlign: "center" }}>
+            <h4 style={{ color: "white" }}>Token Management</h4>
+            <hr style={{ color: "white" }} />
           </div>
-          <Row>
-            <Col lg={12} xs={12} style={{ padding: "20px" }}>
-              <h3>Create SPL Token</h3>
-              <p>
-                Creating a SPL token with SolMinter is easy as 1,2,3. start with
-                the basic requirements: Mint authority, freeze, authority and
-                number of decimals.
-                <br />
-                <AiOutlineInfoCircle color="black" size={25} /> it takes 1 SOL
-                to mint a token, save 25% by paying with SMRT
-              </p>
-            </Col>
+          <Row className="m-3">
+            <h3 style={{ color: "white" }}>Create SPL Token</h3>
+            <p style={{ color: "white" }}>
+              Creating a SPL token with SolMinter is easy as 1,2,3. start with
+              the basic requirements: Mint authority, freeze, authority and
+              number of decimals.
+              <br />
+              <AiOutlineInfoCircle color="yellow" size={25} /> it takes 1 SOL to
+              mint a token, save 25% by paying with SMRT
+            </p>
           </Row>
           <Row>
-            <Col className="text-center">
+            <div className="text-center py-3">
               <Form>
                 <Form.Check
                   inline
+                  style={{ color: "white" }}
+                  label="label goes here"
+                  name="group1"
+                  type="checkbox"
+                />
+                <Form.Check
+                  inline
+                  style={{ color: "white" }}
                   label="label goes here"
                   name="group1"
                   type="checkbox"
                 />
               </Form>
-            </Col>
+            </div>
           </Row>
+          <div className="py-3 px-3">{renderForm()}</div>
           <Row>
-            <Col lg={12} style={{ textAlign: "center" }}>
-              {/* <Form>
-              <Form.Check type="switch" id="custom-switch" />
-            </Form> */}
-            </Col>
-          </Row>
-          <div>{renderForm()}</div>
-          <Row>
-            <Col lg={12} style={{ textAlign: "center" }}>
+            <div className="text-center py-3">
               <button
                 style={{
                   border: "none",
+                  width: "20%",
                   backgroundColor: "purple",
                   color: "white",
-                  padding: "8px",
-                  borderRadius: "20px",
+                  padding: "6px",
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                  borderRadius: "10px",
                 }}
                 onClick={() => setQrCodePage(true)}
               >
                 Create Token
               </button>
-            </Col>
+            </div>
           </Row>
         </div>
       )}
-      {qrCodePage && <QRCodeComponent />}
-    </div>
+    </>
   );
 };
 

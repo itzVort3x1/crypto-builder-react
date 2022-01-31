@@ -1,15 +1,27 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-const ConnectToWallet = React.lazy(() => import("./components/sideBar"));
+import LoadingAnimation from "./components/animation/loadingAnimation";
+
+const ConnectToWallet = React.lazy(() =>
+  import("./components/connectToWallet")
+);
 
 const RoutesNavigation = () => {
   return (
     <Router>
-      <Routes>
-        <Route exact path="/" component={ConnectToWallet} />
-      </Routes>
+      <Suspense
+        fallback={
+          <div>
+            <LoadingAnimation />
+          </div>
+        }
+      >
+        <Routes>
+          <Route exact path="/" element={<ConnectToWallet />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 };

@@ -10,14 +10,14 @@ const LoadingAnimation = (props) => {
       renderer: "svg",
       loop: true,
       autoplay: true,
-      animationData: require("./loading.json"),
+      animationData: require("../../assets/loading.json"),
     });
   }, []);
 
   return (
     <div className="text-center">
       <div
-        style={{ height: "300px", width: "300px" }}
+        style={{ height: "200px", width: "200px" }}
         className="container"
         ref={container}
       ></div>

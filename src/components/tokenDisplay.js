@@ -1,26 +1,30 @@
-import React, { useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import React from "react";
+import { Col, Row, Form } from "react-bootstrap";
 import { AiFillInfoCircle } from "react-icons/ai";
 
-import QRCodeComponent from "./qrCode";
-
 const FormHeader = [
-  { title: "Token name", value: "" },
-  { title: "Token Symbol", value: "" },
-  { title: "Mint authority", value: "askdjfhiausdf8as7dfhasidjfha8sd7" },
-  { title: "Freeze authority", value: "askdjfhiausdf8as7dfhasidjfha8sd7" },
-  { title: "Decimals", value: "" },
+  { title: "Token name", value: "", isDisabled: false },
+  { title: "Token Symbol", value: "", isDisabled: false },
+  {
+    title: "Mint authority",
+    value: "askdjfhiausdf8as7dfhasidjfha8sd7",
+    isDisabled: true,
+  },
+  {
+    title: "Freeze authority",
+    value: "askdjfhiausdf8as7dfhasidjfha8sd7",
+    isDisabled: true,
+  },
+  { title: "Decimals", value: "", isDisabled: false },
 ];
 
 const CreateToken = () => {
-  const [qrCodePage, setQrCodePage] = useState(false);
-
   function renderForm() {
     return FormHeader.map((item) => {
       return (
         <Row
           style={{
-            border: "1px solid purple",
+            border: "1px solid black",
             margin: "10px",
           }}
         >
@@ -45,7 +49,16 @@ const CreateToken = () => {
             </div>
           </Col>
           <Col lg={10} style={{ paddingLeft: "2px", paddingRight: "2px" }}>
-            {item.value}
+            <input
+              disabled={item.isDisabled}
+              style={{
+                border: "none",
+                width: "100%",
+                height: "100%",
+                color: "black",
+              }}
+              value={item.value}
+            />
           </Col>
         </Row>
       );
@@ -53,56 +66,55 @@ const CreateToken = () => {
   }
 
   return (
-    <div>
-      {!qrCodePage && (
-        <div
-          style={{
-            margin: "20px",
-            width: "90vw",
-            height: "94vh",
-            borderRadius: "15px",
-          }}
-          className="shadow-lg"
-        >
-          <div>
-            <h5
-              style={{
-                paddingLeft: "10px",
-                paddingTop: "10px",
-                textAlign: "center",
-              }}
-            >
-              Token Details
-            </h5>
-            <hr />
-          </div>
-          <Row>
-            <Col lg={12} style={{ textAlign: "center" }}>
-              {/* <Form>
-              <Form.Check type="switch" id="custom-switch" />
-            </Form> */}
-            </Col>
-          </Row>
-          <div>{renderForm()}</div>
-          <Row>
-            <Col lg={12} style={{ textAlign: "center" }}>
-              <button
-                style={{
-                  border: "none",
-                  backgroundColor: "purple",
-                  color: "white",
-                  padding: "8px",
-                  borderRadius: "20px",
-                }}
-                onClick={() => setQrCodePage(true)}
-              >
-                Move To Account
-              </button>
-            </Col>
-          </Row>
+    <div
+      style={{
+        borderRadius: "20px",
+      }}
+      className="m-4 customShadow"
+    >
+      <div className="p-3" style={{ textAlign: "center" }}>
+        <h4 style={{ color: "white" }}>Token Details</h4>
+        <hr style={{ color: "white" }} />
+      </div>
+      <Row>
+        <div className="text-center py-3">
+          <Form>
+            <Form.Check
+              inline
+              style={{ color: "white" }}
+              label="label goes here"
+              name="group1"
+              type="checkbox"
+            />
+            <Form.Check
+              inline
+              style={{ color: "white" }}
+              label="label goes here"
+              name="group1"
+              type="checkbox"
+            />
+          </Form>
         </div>
-      )}
-      {qrCodePage && <QRCodeComponent />}
+      </Row>
+      <div className="py-3 px-3">{renderForm()}</div>
+      <Row>
+        <div className="text-center py-3">
+          <button
+            style={{
+              border: "none",
+              width: "20%",
+              backgroundColor: "purple",
+              color: "white",
+              padding: "6px",
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              borderRadius: "10px",
+            }}
+          >
+            Move to account
+          </button>
+        </div>
+      </Row>
     </div>
   );
 };
