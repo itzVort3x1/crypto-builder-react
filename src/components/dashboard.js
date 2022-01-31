@@ -93,7 +93,8 @@ const Dashboard = (props) => {
                 style={{
                   border: "none",
                   width: `${width > 950 ? "20%" : "60%"}`,
-                  backgroundColor: "#161E54",
+                  backgroundImage:
+                    "linear-gradient(to right top, #be0019, #b30039, #990057, #6c006f, #13097f)",
                   color: "white",
                   padding: "6px",
                   paddingLeft: "10px",
